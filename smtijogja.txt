@@ -13,13 +13,13 @@
     <meta property="og:description" content="Selamat datang di Sushi138 situs slot thailand super gacor yang menawarkan server slot777 kekinian dan terbukti paling sering beri maxwin kepada pemain. Temukan rekomendasi link slot online server asia terbaik melalui akun vip super maxwin hari ini juga." />
     <meta property="og:image" content="https://perpustakaan.smtijogja.sch.id/files/temp/situs-gacor-slot-thailand.webp" />
     <meta property="og:image:secure_url" content="https://perpustakaan.smtijogja.sch.id/files/temp/situs-gacor-slot-thailand.webp" />
-    <meta property="og:url" content="https://perpustakaan.smtijogja.sch.id/index.php?p=show_detail&id=6310" />
+    <meta property="og:url" content="https://perpustakaan.smtijogja.sch.id/repositori/" />
     <meta property="og:author" content="SLOT THAILAND" />
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <link rel="icon" type="image/x-icon" href="https://perpustakaan.smtijogja.sch.id/images/default/webicon.png?v=eb606" />
     <link rel="stylesheet" href="https://public-assets.envato-static.com/assets/market/core/index-890ec20f1844d10ada49c31531fe6bda46152fdc1308a27e86e6a44c68077845.css" media="all" />
     <link rel="stylesheet" href="https://public-assets.envato-static.com/assets/market/pages/default/index-29739375aa9c94f3d3f77648c403a2b4e630146fb7542d13ae7c7cb2d8888456.css" media="all" />
-    <link rel="canonical" href="https://perpustakaan.smtijogja.sch.id/index.php?p=show_detail&id=6310" />
+    <link rel="canonical" href="https://perpustakaan.smtijogja.sch.id/repositori/" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     
     <script type="application/ld+json">
@@ -27,7 +27,7 @@
   "@context": "https://schema.org",
   "@type": "WebPage",
   "name": "Sushi138: Slot Thailand & Server Slot777 Super Gacor Terbukti",
-  "url": "https://perpustakaan.smtijogja.sch.id/index.php?p=show_detail&id=6310",
+  "url": "https://perpustakaan.smtijogja.sch.id/repositori/",
   "description": "Selamat datang di Sushi138 situs slot thailand super gacor yang menawarkan server slot777 kekinian dan terbukti paling sering beri maxwin kepada pemain.",
   "isPartOf": {
     "@type": "WebSite",
@@ -46,7 +46,7 @@
   "@context": "https://schema.org",
   "@type": "WebSite",
   "name": "Sushi138",
-  "url": "https://perpustakaan.smtijogja.sch.id/index.php?p=show_detail&id=6310",
+  "url": "https://perpustakaan.smtijogja.sch.id/repositori/",
   "potentialAction": {
     "@type": "SearchAction",
     "target": "https://perpustakaan.smtijogja.sch.id/index.php?p=show_detail&id=6310?s={search_term_string}",
@@ -59,7 +59,7 @@
   "@context": "https://schema.org",
   "@type": "Organization",
   "name": "Sushi138",
-  "url": "https://perpustakaan.smtijogja.sch.id/index.php?p=show_detail&id=6310",
+  "url": "https://perpustakaan.smtijogja.sch.id/repositori/",
   "logo": "https://perpustakaan.smtijogja.sch.id/files/temp/logo-sushi138.webp"
 }
 </script>
@@ -124,7 +124,7 @@
     "priceCurrency": "IDR",
     "price": "10000",
     "availability": "https://schema.org/InStock",
-    "url": "https://perpustakaan.smtijogja.sch.id/index.php?p=show_detail&id=6310"
+    "url": "https://perpustakaan.smtijogja.sch.id/repositori/"
   }
 }
 </script>
@@ -561,13 +561,13 @@
 
   <div class='grid-container -layout-wide'>
     <div class='global-header__wrapper'>
-      <a href="https://perpustakaan.smtijogja.sch.id/index.php?p=show_detail&id=6310">
+      <a href="https://perpustakaan.smtijogja.sch.id/repositori/">
         <img height="20" alt="Envato Market" class="global-header__logo" src="https://perpustakaan.smtijogja.sch.id/files/temp/logo-sushi138.webp" />
 </a>
       <nav class='global-header-menu' role='navigation'>
         <ul class='global-header-menu__list'>
             <li class='global-header-menu__list-item'>
-              <a class="global-header-menu__link" href="https://perpustakaan.smtijogja.sch.id/index.php?p=show_detail&id=6310">
+              <a class="global-header-menu__link" href="https://perpustakaan.smtijogja.sch.id/repositori/">
                 <span class='global-header-menu__link-text hidden-mobile'>
                   Situs Slot
                 </span>
@@ -575,7 +575,7 @@
 
 
           <li data-view="globalHeaderMenuDropdownHandler" class='global-header-menu__list-item--with-dropdown'>
-  <a data-lazy-load-trigger="mouseover" class="global-header-menu__link" href="https://perpustakaan.smtijogja.sch.id/index.php?p=show_detail&id=6310">
+  <a data-lazy-load-trigger="mouseover" class="global-header-menu__link" href="https://perpustakaan.smtijogja.sch.id/repositori/">
     <svg width="16px"
      height="16px"
      viewBox="0 0 16 16"
@@ -634,27 +634,27 @@
   <div class="grid-container -layout-wide">
     <ul class="header-categories__links">
     <li class="header-categories__links-item">
-      <a class="header-categories__main-link" data-view="touchOnlyDropdown" data-dropdown-target=".js-categories-0-dropdown" href="https://perpustakaan.smtijogja.sch.id/index.php?p=show_detail&id=6310">SLOT GACOR</a>
+      <a class="header-categories__main-link" data-view="touchOnlyDropdown" data-dropdown-target=".js-categories-0-dropdown" href="https://perpustakaan.smtijogja.sch.id/repositori/">SLOT GACOR</a>
         <div class="header-categories__links-dropdown js-categories-0-dropdown">
         </div>
     </li>
     <li class="header-categories__links-item">
-      <a class="header-categories__main-link" data-view="touchOnlyDropdown" data-dropdown-target=".js-categories-1-dropdown" href="https://perpustakaan.smtijogja.sch.id/index.php?p=show_detail&id=6310">SLOT THAILAND</a>
+      <a class="header-categories__main-link" data-view="touchOnlyDropdown" data-dropdown-target=".js-categories-1-dropdown" href="https://perpustakaan.smtijogja.sch.id/repositori/">SLOT THAILAND</a>
     </li>
     <li class="header-categories__links-item">
-      <a class="header-categories__main-link" data-view="touchOnlyDropdown" data-dropdown-target=".js-categories-2-dropdown" href="https://perpustakaan.smtijogja.sch.id/index.php?p=show_detail&id=6310">SLOT ONLINE</a>
+      <a class="header-categories__main-link" data-view="touchOnlyDropdown" data-dropdown-target=".js-categories-2-dropdown" href="https://perpustakaan.smtijogja.sch.id/repositori/">SLOT ONLINE</a>
     </li>
     <li class="header-categories__links-item">
-      <a class="header-categories__main-link header-categories__main-link--empty" href="https://perpustakaan.smtijogja.sch.id/index.php?p=show_detail&id=6310">SITUS GACOR</a>
+      <a class="header-categories__main-link header-categories__main-link--empty" href="https://perpustakaan.smtijogja.sch.id/repositori/">SITUS GACOR</a>
     </li>
     <li class="header-categories__links-item">
-      <a class="header-categories__main-link" data-view="touchOnlyDropdown" data-dropdown-target=".js-categories-4-dropdown" href="https://perpustakaan.smtijogja.sch.id/index.php?p=show_detail&id=6310">SLOT777</a>
+      <a class="header-categories__main-link" data-view="touchOnlyDropdown" data-dropdown-target=".js-categories-4-dropdown" href="https://perpustakaan.smtijogja.sch.id/repositori/">SLOT777</a>
     </li>
     <li class="header-categories__links-item">
-      <a class="header-categories__main-link" data-view="touchOnlyDropdown" data-dropdown-target=".js-categories-5-dropdown" href="https://perpustakaan.smtijogja.sch.id/index.php?p=show_detail&id=6310">AKUN VIP GACOR</a>
+      <a class="header-categories__main-link" data-view="touchOnlyDropdown" data-dropdown-target=".js-categories-5-dropdown" href="https://perpustakaan.smtijogja.sch.id/repositori/">AKUN VIP GACOR</a>
     </li>
     <li class="header-categories__links-item">
-      <a class="header-categories__main-link header-categories__main-link--empty" href="https://perpustakaan.smtijogja.sch.id/index.php?p=show_detail&id=6310">SLOT SERVER THAILAND</a>
+      <a class="header-categories__main-link header-categories__main-link--empty" href="https://perpustakaan.smtijogja.sch.id/repositori/">SLOT SERVER THAILAND</a>
     </li>
 </ul>
 
@@ -701,8 +701,8 @@
      <div class="breadcrumb-cus">
         <nav class="breadcrumb" aria-label="breadcrumb">
             <ol>
-                <li><a href="https://perpustakaan.smtijogja.sch.id/index.php?p=show_detail&id=6310">HOME</a></li>
-                <li><a href="https://perpustakaan.smtijogja.sch.id/index.php?p=show_detail&id=6310">SUSHI138</a></li>
+                <li><a href="https://perpustakaan.smtijogja.sch.id/repositori/">HOME</a></li>
+                <li><a href="https://perpustakaan.smtijogja.sch.id/repositori/">SUSHI138</a></li>
                 <li class="active">Rekomendasi Slot Thailand & Server Slot777 Super Gacor Terbukti</li>
             </ol>
             </nav>
