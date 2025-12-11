@@ -34,12 +34,12 @@
     <meta property="og:type" content="product" />
     <meta property="og:site_name" content="SUSHI138" />
     <meta property="og:url" content="https://hungryhabibipk.com/about/" />
-    <meta property="og:image" content="https://epbb.pemalangkab.go.id/public/upload/file_bg/slot-toto.webp" />
+    <meta property="og:image" content="https://hungryhabibipk.com/wp-content/plugins/slot-toto.webp" />
     <meta property="product:price:currency" content="IDR" />
-    <link rel="shortcut icon" href="https://epbb.pemalangkab.go.id/public/upload/file_bg/icon.png" />
-    <link rel="icon" href="https://epbb.pemalangkab.go.id/public/upload/file_bg/icon.png" type="image/webp" sizes="32x32" />
-    <link rel="icon" href="https://epbb.pemalangkab.go.id/public/upload/file_bg/icon.png" type="image/webp" sizes="16x16" />
-    <link rel="apple-touch-icon" href="https://epbb.pemalangkab.go.id/public/upload/file_bg/icon.png" sizes="180x180" />
+    <link rel="shortcut icon" href="https://hungryhabibipk.com/wp-content/uploads/2025/11/cropped-Logo-icon-1-scaled-1-192x192.png" />
+    <link rel="icon" href="https://hungryhabibipk.com/wp-content/uploads/2025/11/cropped-Logo-icon-1-scaled-1-192x192.png" type="image/webp" sizes="32x32" />
+    <link rel="icon" href="https://hungryhabibipk.com/wp-content/uploads/2025/11/cropped-Logo-icon-1-scaled-1-192x192.png" type="image/webp" sizes="16x16" />
+    <link rel="apple-touch-icon" href="https://hungryhabibipk.com/wp-content/uploads/2025/11/cropped-Logo-icon-1-scaled-1-192x192.png" sizes="180x180" />
     <link rel="manifest" href="/site.webmanifest" />
     <meta name="apple-mobile-web-app-title" content="SUSHI138" />
     <meta name="application-name" content="SUSHI138" />
@@ -49,7 +49,7 @@
     <link rel="preconnect" href="//i.etsystatic.com" />
     <link rel="preconnect" href="//v.etsystatic.com" />
     <link rel="preconnect" href="//v.etsystatic.com" crossorigin="anonymous" />
-    <link rel="preload" as="image" imagesrcset="https://epbb.pemalangkab.go.id/public/upload/file_bg/slot-toto.webp" fetchpriority="high" />
+    <link rel="preload" as="image" imagesrcset="https://hungryhabibipk.com/wp-content/plugins/slot-toto.webp" fetchpriority="high" />
     <link rel="alternate" href="https://hungryhabibipk.com/about/" hreflang="id" />
     <script>
       ! function(e) {
@@ -188,8 +188,8 @@
     {
       "@type": "ImageObject",
       "author": "SUSHI138",
-      "contentUrl": "https://epbb.pemalangkab.go.id/public/upload/file_bg/slot-toto.webp",
-      "thumbnailUrl": "https://epbb.pemalangkab.go.id/public/upload/file_bg/slot-toto.webp"
+      "contentUrl": "https://hungryhabibipk.com/wp-content/plugins/slot-toto.webp",
+      "thumbnailUrl": "https://hungryhabibipk.com/wp-content/plugins/slot-toto.webp"
     }
   ],
   "category": "Android Game < Slot Toto < Bandar Slot88 SUSHI138",
@@ -333,8 +333,8 @@
   "name": "Sushi138 ⋆ Link Toto Slot Gacor & Agen Slot88 Resmi Online 24 Jam Maxwin Terjamin!",
   "description": "Sushi138 merupakan link menuju situs toto slot gacor dengan akses mudah ke agen slot88 resmi terbukti sudah terjamin maxwin di Indonesia dan dukungan support online 24 jam siap berikan pelayanan maksimal.",
   "thumbnailUrl": [
-    "https://epbb.pemalangkab.go.id/public/upload/file_bg/slot-toto.webp",
-    "https://epbb.pemalangkab.go.id/public/upload/file_bg/slot-toto.webp"
+    "https://hungryhabibipk.com/wp-content/plugins/slot-toto.webp",
+    "https://hungryhabibipk.com/wp-content/plugins/slot-toto.webp"
   ],
   "uploadDate": "2024-09-28T04:19:10-04:00",
   "duration": "PT18S",
@@ -351,7 +351,7 @@
       "@id": "https://epbb.pemalangkab.go.id/public/#org",
       "name": "SUSHI138",
       "url": "https://hungryhabibipk.com/about/",
-      "logo": "https://epbb.pemalangkab.go.id/public/upload/file_bg/slot-toto.webp"
+      "logo": "https://hungryhabibipk.com/wp-content/plugins/slot-toto.webp"
     },
     {
       "@type": "WebSite",
@@ -32748,7 +32748,7 @@
                 show-scrollable-thumbnails">
                             <ul class="wt-list-unstyled wt-overflow-hidden wt-position-relative carousel-pane-list" style="padding-top: 80%;" data-carousel-pane-list tabindex="0">
                               <li class=" wt-position-absolute wt-width-full wt-height-full wt-position-top wt-position-left carousel-pane" data-carousel-pane data-index="0" data-image-id="6256816164" data-palette-listing-image>
-                                <img class="wt-max-width-full wt-horizontal-center wt-vertical-center carousel-image wt-rounded" alt="Sushi138 ⋆ Link Toto Slot Gacor & Agen Slot88 Resmi Online 24 Jam Maxwin Terjamin!" data-carousel-first-image data-perf-group="main-product-image" src="https://epbb.pemalangkab.go.id/public/upload/file_bg/slot-toto.webp" srcset="https://epbb.pemalangkab.go.id/public/upload/file_bg/slot-toto.webp" fetchpriority="high" data-original-image-width="3000" data-src-zoom-image="https://i.etsystatic.com/54267703/r/il/f18987/6256816164/il_fullxfull.6256816164_26ap.jpg" data-index="0" />
+                                <img class="wt-max-width-full wt-horizontal-center wt-vertical-center carousel-image wt-rounded" alt="Sushi138 ⋆ Link Toto Slot Gacor & Agen Slot88 Resmi Online 24 Jam Maxwin Terjamin!" data-carousel-first-image data-perf-group="main-product-image" src="https://hungryhabibipk.com/wp-content/plugins/slot-toto.webp" srcset="https://hungryhabibipk.com/wp-content/plugins/slot-toto.webp" fetchpriority="high" data-original-image-width="3000" data-src-zoom-image="https://i.etsystatic.com/54267703/r/il/f18987/6256816164/il_fullxfull.6256816164_26ap.jpg" data-index="0" />
                               </li>
                             </ul>
                           </div>
@@ -32779,7 +32779,7 @@
                                 </button>
                                 <ul class="wt-list-unstyled wt-overflow-hidden image-overlay-list wt-position-relative wt-vertical-center wt-display-flex-xs wt-justify-content-center" style="padding-top: 80%;" data-image-overlay-list tabindex="0">
                                   <li class="wt-display-none wt-position-absolute wt-position-top wt-position-left wt-width-full wt-height-full skeleton-background" data-listing-image data-index="0" data-image-id="6256816164">
-                                    <img class="wt-rounded wt-overflow-hidden image-overlay-img wt-object-fit-contain wt-vertical-center" alt="Bandar Slot88 Gacor Resmi" data-delay-src="https://epbb.pemalangkab.go.id/public/upload/file_bg/slot-toto.webp" data-delay-srcset="https://epbb.pemalangkab.go.id/public/upload/file_bg/slot-toto.webp 1x, https://epbb.pemalangkab.go.id/public/upload/file_bg/slot-toto.webp 2x" data-original-image-width="3000" data-original-image-height="3000" data-index="0" data-src-zoom-image="https://i.etsystatic.com/54267703/r/il/f18987/6256816164/il_fullxfull.6256816164_26ap.jpg" />
+                                    <img class="wt-rounded wt-overflow-hidden image-overlay-img wt-object-fit-contain wt-vertical-center" alt="Bandar Slot88 Gacor Resmi" data-delay-src="https://hungryhabibipk.com/wp-content/plugins/slot-toto.webp" data-delay-srcset="https://hungryhabibipk.com/wp-content/plugins/slot-toto.webp 1x, https://hungryhabibipk.com/wp-content/plugins/slot-toto.webp 2x" data-original-image-width="3000" data-original-image-height="3000" data-index="0" data-src-zoom-image="https://i.etsystatic.com/54267703/r/il/f18987/6256816164/il_fullxfull.6256816164_26ap.jpg" />
                                   </li>
                                   <div class="wt-z-index-1 click-to-zoom-text wt-position-absolute wt-display-none" data-click-to-zoom-toast>
                                     <span data-clg-id="WtBadge" class="wt-badge wt-badge--default wt-text-body-01">
