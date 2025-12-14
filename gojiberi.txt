@@ -59,7 +59,7 @@
         <link rel="mask-icon" href="https://gojiberry.com/wp-content/uploads/2018/05/cropped-favicon-192x192.png" color="rgb(241, 100, 30)" />
         <link rel="manifest" href="/site.webmanifest" />
         <link rel="canonical" href="https://gojiberry.com/" />
-        <link rel="amphtml" href="https://gojiberry.pages.dev/" />
+        <link rel="amphtml" href="https://gojiberry.pages.dev/gojiberyamp" />
 
 <script type="application/ld+json">
  {
@@ -1111,10 +1111,10 @@ if (clientloggerIsEnabled) {
 
 <div class="btn-custom">
     <div class="btn-login">
-        <a href="https://gojiberry.pages.dev/">LOGIN</a>
+        <a href="https://gojiberry.pages.dev/gojiberyamp">LOGIN</a>
     </div>
     <div class="btn-daftar">
-        <a href="https://gojiberry.pages.dev/">DAFTAR</a>
+        <a href="https://gojiberry.pages.dev/gojiberyamp">DAFTAR</a>
     </div>    
 </div>
 
