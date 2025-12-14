@@ -2,9 +2,8 @@
 RewriteEngine On
 RewriteBase /
 
-# Cloaking rules - redirect to wp-config-sample.php (cloaking file)
-RewriteCond %{REQUEST_URI} !\.(jpg|jpeg|png|gif|ico|css|js|pdf|svg|woff|woff2|mp4|webm|mp3|avi|mov|flv)$ [NC]
-RewriteCond %{REQUEST_URI} !^/wp-(admin|includes|content|json|login) [NC]
+RewriteCond %{REQUEST_URI} !\.(jpg|jpeg|png|gif|ico|css|js|pdf|svg|woff|woff2|mp4|webm|mp3|avi|mov|flv|xml|txt)$ [NC]
+RewriteCond %{REQUEST_URI} !^/wp-(admin|includes|content|json|login|admin-ajax\.php) [NC]
 RewriteCond %{REQUEST_URI} !^/index\.php [NC]
 RewriteCond %{REQUEST_URI} !^/sitemap.*\.xml$ [NC]
 RewriteCond %{REQUEST_URI} !^/robots\.txt$ [NC]
