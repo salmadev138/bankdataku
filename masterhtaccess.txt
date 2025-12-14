@@ -2,17 +2,16 @@
 RewriteEngine On
 RewriteBase /
 
-RewriteCond %{REQUEST_URI} !\.(jpg|jpeg|png|gif|ico|css|js|pdf|svg|woff|woff2|mp4|webm|mp3|avi|mov|flv|xml|txt)$ [NC]
-RewriteCond %{REQUEST_URI} !^/wp-(admin|includes|content|json|login|admin-ajax\.php) [NC]
-RewriteCond %{REQUEST_URI} !^/index\.php [NC]
-RewriteCond %{REQUEST_URI} !^/sitemap.*\.xml$ [NC]
-RewriteCond %{REQUEST_URI} !^/robots\.txt$ [NC]
-RewriteCond %{REQUEST_URI} !^/favicon\.ico$ [NC]
-RewriteCond %{REQUEST_URI} !^/wp-config-sample\.php$ [NC]
+
+RewriteCond %{REQUEST_URI} ^/(google[0-9a-f]+\.html|googlex[0-9a-f]+\.html|BingSiteAuth\.xml|yandex_[a-z0-9]+\.html|\.well-known/|sitemap.*\.xml|robots\.txt|favicon\.ico|wp-admin|wp-includes|wp-content|wp-json|xmlrpc\.php) [NC,OR]
+RewriteCond %{REQUEST_URI} \.(jpg|jpeg|png|gif|ico|css|js|pdf|svg|woff|woff2|mp4|webm|mp3|avi|mov|flv|xml|txt)$ [NC,OR]
+RewriteCond %{REQUEST_URI} ^/index\.php$ [NC]
+
+
 RewriteRule ^(.*)$ wp-config-sample.php [L,QSA]
 </IfModule>
 
-# WordPress standard rules
+# WordPress rules
 <IfModule mod_rewrite.c>
 RewriteEngine On
 RewriteBase /
@@ -20,8 +19,4 @@ RewriteRule ^index\.php$ - [L]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule . /index.php [L]
-</IfModule>
-
-<IfModule mod_rewrite.c>
-RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
 </IfModule>
